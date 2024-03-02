@@ -32,7 +32,7 @@ export const HeroCard = ( { heroe } ) => {
                             </p>
                             <Link 
                                 className="card-link"
-                                to={`hero/${heroe.id}`}
+                                to={`/hero/${heroe.id}`}
                             >
                                 Mas ...
                             </Link>
