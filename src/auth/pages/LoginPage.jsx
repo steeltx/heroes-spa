@@ -9,10 +9,11 @@ export const LoginPage = () => {
     const navigate = useNavigate();
 
     const onLogin = () => {
+        const lastPath = localStorage.getItem('lastPath') || '/';
         // llamar al context para hacer login indicando el nombre
         login('User');
         // simular login e ir a la pagina de inicio
-        navigate('/',{
+        navigate(lastPath,{
             replace: true
         });
     }
