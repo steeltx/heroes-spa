@@ -1,11 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth";
 
 export const Navbar = () => {
 
     // uso de custom hook de react router
     const navigate = useNavigate();
 
+    const { user, logout } = useContext(AuthContext);
+
     const onLogout = () => {
+        // llamar a la funcion que realiza el login en el authProvider
+        logout();
         // ir a la pagina de login
         navigate('/login',{
             // evitar regresar a la pagina anterior
@@ -51,7 +57,7 @@ export const Navbar = () => {
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
-                    <span className="nav-item nav-link text-info">Usuario</span>
+                    <span className="nav-item nav-link text-info">{user?.name}</span>
                     <button 
                         className="nav-item nav-link btn"
                         onClick={onLogout}
